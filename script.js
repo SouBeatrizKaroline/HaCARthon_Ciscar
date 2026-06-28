@@ -63,7 +63,13 @@ const ciscaKnowledge = {
     "pendencia": "Não se assuste! Uma pendência só significa que o técnico do governo viu um ponto de melhoria no mapa ou precisa de uma certidão atualizada.",
     "credito rural": "O banco só libera o dinheiro do Pronaf ou do custeio se o CAR estiver em dia. Cuidar do meio ambiente hoje é o segredo para conseguir o recurso da próxima safra!",
     "prada": "PRADA é o Projeto de Recomposição de Áreas Degradadas. É apenas um plano simples onde combinamos onde e como você vai plantar as árvores que faltam.",
-    "ajuda": "Estou aqui para ajudar! Você pode me perguntar sobre 'APP', 'Reserva Legal', 'Pendências' ou 'Crédito Rural'. Digite uma palavra ou selecione uma tag!"
+    "ajuda": "Estou aqui para ajudar! Você pode me perguntar sobre 'APP', 'Reserva Legal', 'Pendências' ou 'Crédito Rural'. Digite uma palavra ou selecione uma tag!",
+    "sicar": "O SICAR é o Sistema Nacional de Cadastro Ambiental Rural. Pense nele como o grande computador de Brasília onde ficam guardados os 'RGs' (CAR) de todas as fazendas do Brasil. É lá que os técnicos do governo olham o mapa da sua terra.",
+    "corpo hidrico": "Para o governo, não importa se você chama de corguinho, igarapé, riacho, riozinho, brejo ou nascente: tudo isso entra na mesma gaveta chamada 'Corpo Hídrico'. A regra é a mesma para todos: a água precisa de uma mata em volta para não secar!",
+    
+    // Chaves de suporte para o fluxo de interpretação (Intenção -> Validação)
+    "medo de multa": "Calma, parceiro! Nem toda pendência ou aviso no sistema significa multa imediata. Na maioria das vezes, o governo só está pedindo para corrigir o desenho do mapa ou comprovar uma informação. Vamos dar uma olhada juntos antes de se preocupar.",
+    "fluxo pendencia app": "Quando o sistema avisa que deu 'problema na beira do rio', a gente faz três passos: 1º Olhamos se tem mesmo uma pendência no seu CAR; 2º Consultamos o SICAR para ver o que o técnico escreveu; 3º Olhamos na Lei o que precisa ser feito (como o PRADA) para resolver sem você levar puxão de orelha."
 };
 
 let activeScenario = 1;
@@ -183,6 +189,54 @@ function insertMessage(sender, text, side) {
     box.scrollTop = box.scrollHeight;
 }
 
+// ==========================================================
+// MOTOR DE CRUZA DE DADOS (FLUXO INTELIGENTE DE VALIDAÇÃO)
+// ==========================================================
+function processarRespostaComValidacao(textoProdutor) {
+    const lower = textoProdutor.toLowerCase();
+    const dadosDoCenario = scenarios[activeScenario];
+
+    // 1. Dicionário de sinônimos da roça (Tudo vira Corpo Hídrico)
+    const sinonimosAgua = ["corguinho", "igarapé", "riacho", "riozinho", "rio", "beira do rio", "córrego"];
+    const mencionaAgua = sinonimosAgua.some(termo => lower.includes(termo));
+    
+    const mencionaMultaOuProblema = lower.includes("multa") || lower.includes("problema") || lower.includes("trem");
+
+    // 2. INTERPRETAÇÃO: Se ele está perguntando de problema na água/rio
+    if (mencionaAgua && mencionaMultaOuProblema) {
+        
+        // 3. VALIDAÇÃO: O sistema olha o cenário ativo para ver se REALMENTE tem pendência
+        if (dadosDoCenario.hasApp && activeScenario === 2) {
+            // Cenário 2: Tem pendência real de APP
+            return `Olha, seu Raimundo, fica tranquilo! ${ciscaKnowledge["medo de multa"]} ` +
+                   `Dei uma olhada aqui no sistema do seu CAR e **realmente consta uma recomendação de APP pendente** no seu ${dadosDoCenario.propName}. ` +
+                   `O sistema aponta a necessidade de adequar cerca de 1,2 hectare na beira do rio. ` +
+                   `Mas não é multa! É só a gente assinar o Termo de Compromisso (PRADA) e ajustar o mapa. Quer que eu te explique o que é o PRADA?`;
+        } 
+        
+        if (activeScenario === 3) {
+            // Cenário 3: O imóvel já está regularizado
+            return `Seu Raimundo, o senhor pode ficar com o coração bem sossegado! Dei uma olhada aqui no sistema oficial agora mesmo e o seu cadastro está **100% Regularizado**. ` +
+                   `Aquele problema antigo na beira do rio já foi validado e aprovado pelo analista. O seu CAR está verdinho e pronto para o Crédito Rural!`;
+        }
+
+        // Cenário 1 ou outros onde não há problema registrado de APP
+        return `Seu Raimundo, consultei a base oficial aqui e o seu cadastro está na fila 'Em análise'. ` +
+               `**Não consta nenhuma pendência ou multa de beira de rio (APP)** registrada para o ${dadosDoCenario.propName} no momento. ` +
+               `Às vezes o pessoal se confunde, mas aqui no sistema está tudo correndo normalmente na fila do governo!`;
+    }
+
+    // 4. FALLBACK: Se não caiu no fluxo de validação da APP, busca por palavras-chave normais
+    for (const k in ciscaKnowledge) {
+        if (lower.includes(k)) {
+            return ciscaKnowledge[k];
+        }
+    }
+
+    // Se a IA não entender nada
+    return "Essa funcionalidade de IA ainda está em evolução no protótipo do Siscar+. Na versão completa do produto, nossa Inteligência Artificial lerá o Código Florestal e os Manuais Oficiais para te responder com total certeza técnica!";
+}
+
 function submitChatMessage() {
     const input = document.getElementById('chat-input');
     const val = input.value.trim();
@@ -204,20 +258,8 @@ function submitChatMessage() {
         const l = document.getElementById('cisca-typing');
         if (l) l.remove();
 
-        let reply = "";
-        const lower = val.toLowerCase();
-
-        // Procura por palavras-chave no dicionário amigável
-        for (const k in ciscaKnowledge) {
-            if (lower.includes(k)) {
-                reply = ciscaKnowledge[k];
-                break;
-            }
-        }
-
-        if (!reply) {
-            reply = "Essa funcionalidade de IA ainda está em evolução no protótipo do Siscar+. Na versão completa do produto, nossa Inteligência Artificial lerá o Código Florestal e os Manuais Oficiais para te responder com total certeza técnica!";
-        }
+        // Roda o novo motor com validação de intenção e cenário real
+        const reply = processarRespostaComValidacao(val);
 
         insertMessage("🐔 Cisca", reply, "received");
     }, 1200);
