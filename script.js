@@ -55,7 +55,6 @@ const scenarios = {
 // ==========================================
 // CENTRAL DE RESPOSTAS DA CISCA (LOCAL + FETCH)
 // ==========================================
-// Iniciamos direto com as respostas locais para que NADA dependa do tempo de resposta do servidor externo
 let ciscaKnowledge = {
     "app": "APP é a Área de Preservação Permanente. É a mata protetora de rios, córregos e nascentes. Deixar a vegetação lá evita que a terra desmorone e falte água para sua própria plantação!",
     "reserva legal": "A Reserva Legal é uma fatia de vegetação nativa que todo sítio precisa guardar. Aqui na nossa região de Cerrado/Mata ela equivale a 20% do tamanho da sua fazenda.",
@@ -64,7 +63,16 @@ let ciscaKnowledge = {
     "pendencia": "Não se assuste! Uma pendência só significa que o técnico do governo viu um ponto de melhoria no mapa ou precisa de uma certidão atualizada.",
     "credito rural": "O banco só libera o dinheiro do Pronaf ou do custeio se o CAR estiver em dia. Cuidar do meio ambiente hoje é o segredo para conseguir o recurso da próxima safra!",
     "prada": "PRADA é o Projeto de Recomposição de Áreas Degradadas. É apenas um plano simples onde combinamos onde e como você vai plantar as árvores que faltam.",
-    "ajuda": "Estou aqui para ajudar! Você pode me perguntar sobre 'APP', 'Reserva Legal', 'Pendências' ou 'Crédito Rural'. Digite uma palavra ou selecione uma tag!"
+    "ajuda": "Estou aqui para ajudar! Você pode me perguntar sobre 'APP', 'Reserva Legal', 'Pendências' ou 'Crédito Rural'. Digite uma palavra ou selecione uma tag!",
+    
+    // Respostas de Emergência adicionadas para o Pitch
+    "bloqueio": "Calma, parceiro, não desespere! Se o gerente do banco falou que sua terra está bloqueada e o dinheiro não vai sair, 90% das vezes é porque o status do seu CAR mudou para 'Pendente' ou precisa de uma retificação simples. Não significa que você perdeu a terra! Vamos entrar na Central do Proprietário juntos, ver a cartinha que o técnico deixou e arrumar o mapa ou o documento. Resolveu o papel, o banco destrava o dinheiro!",
+    "fiscal": "Se um fiscal do órgão ambiental ou do IBAMA chegar no seu sítio, mantenha a calma e seja educado. Eles estão cumprindo o trabalho deles. O seu maior escudo é ter o Recibo do CAR em mãos (impresso ou no celular). Mostre que você está cadastrado. Se houver alguma pendência ou irregularidade antiga (antes de 2008), explique que você quer entrar no PRA para arrumar a terra. O governo quer a regularização, não quer te prejudicar!",
+    "prazo": "Se você perdeu o prazo de dezembro de 2018 para o CAR, o coração pode desacelerar: você ainda pode e deve fazer o CAR hoje mesmo! A inscrição continua 100% aberta e gratuita. O que muda é que você perdeu a entrada automática e simplificada nos benefícios do PRA, e o banco vai travar seu crédito até você entregar o recibo. Faça o cadastro agora para limpar o nome da sua terra!",
+    "vizinho": "Se você abriu o sistema e viu que o desenho do vizinho entrou para dentro da sua cerca (sobreposição), não precisa brigar! Isso acontece muito porque os mapas antigos eram feitos meio 'no olho'. O sistema do CAR vai deixar os dois cadastros como 'Pendente'. O jeito certo é conversar com o vizinho, conferir as escrituras e chamar um técnico para medir a divisa certa no GPS (Georreferenciamento) para os dois corrigirem o CAR.",
+    
+    // Gatilho visual do botão de crédito
+    "botao credito rural": "💰 **BOTÃO CRÉDITO RURAL ATIVADO!** 💰\n\nOlha que notícia boa, meu amigo: o seu CAR está certinho e a porteira do banco está escancarada para você! Com esse botão ativo, você tem o passaporte para liberar o dinheiro do **Pronaf, Pronamp** ou do custeio da sua próxima safra. \n\n**O que muda para você agora:**\n* **Juros mais baixos:** Quem cuida da natureza ganha desconto nos juros do financiamento.\n* **Prazo maior:** Mais tempo para colher, vender e pagar o banco sem sufoco.\n* **Seguro da Lavoura:** Desconto garantido para proteger sua plantação contra seca ou chuva forte.\n\nLeve o seu **Recibo de Inscrição Ativo** direto para o seu gerente ou para a sua cooperativa. Cuidar do meio ambiente é o segredo para colocar dinheiro no bolso!"
 };
 
 // Função para tentar atualizar a base local via JSON externo em segundo plano
@@ -73,7 +81,6 @@ async function carregarConhecimentoCisca() {
         const resposta = await fetch('./perguntas.json');
         if (resposta.ok) {
             const dadosExternos = await resposta.json();
-            // Une os dados, priorizando as atualizações do JSON caso existam
             ciscaKnowledge = { ...ciscaKnowledge, ...dadosExternos };
             console.log("Prosa da Cisca sincronizada com o arquivo JSON com sucesso!");
         }
@@ -102,7 +109,6 @@ function switchSubScreen(subId) {
     document.querySelectorAll('.sub-screen').forEach(s => s.classList.remove('active'));
     document.getElementById(subId).classList.add('active');
     
-    // Controle do botão Voltar Superior
     const backBtn = document.getElementById('btn-global-back');
     if (subId === 'sub-dashboard') {
         backBtn.classList.add('hidden');
@@ -110,7 +116,6 @@ function switchSubScreen(subId) {
         backBtn.classList.remove('hidden');
     }
 
-    // Atualiza estado visual da barra inferior
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     if(subId === 'sub-dashboard') document.getElementById('nav-dash').classList.add('active');
     if(subId === 'sub-timeline') document.getElementById('nav-time').classList.add('active');
@@ -133,7 +138,6 @@ function selectScenario(num) {
 
     const data = scenarios[num];
     
-    // Atualização de elementos dinâmicos baseados no JSON do Cenário
     document.getElementById('dash-greeting').innerText = data.greeting;
     document.getElementById('dash-prop-name').innerText = data.propName;
     document.getElementById('dash-prop-meta').innerHTML = `<span class="material-icons text-small">place</span> ${data.meta}`;
@@ -150,11 +154,21 @@ function selectScenario(num) {
     const zone = document.getElementById('map-app-zone');
     const tagApp = document.getElementById('map-tag-app');
     const btnActionReg = document.getElementById('btn-action-regularizar');
+    const btnCredito = document.getElementById('btn-credito-rural');
 
     if (data.hasApp) {
         river.style.display = "block"; zone.style.display = "block"; tagApp.style.display = "block"; btnActionReg.style.display = "block";
     } else {
         river.style.display = "none"; zone.style.display = "none"; tagApp.style.display = "none"; btnActionReg.style.display = "none";
+    }
+
+    // Gerenciador do Botão do Crédito Rural (Apenas visível no Cenário 3)
+    if (btnCredito) {
+        if (num === 3) {
+            btnCredito.style.display = "block";
+        } else {
+            btnCredito.style.display = "none";
+        }
     }
 
     // Atualização da Linha do Tempo
@@ -176,7 +190,6 @@ function selectScenario(num) {
     document.getElementById('doc-compromisso-icon').className = `material-icons ${data.docCompromisso.class}`;
     document.getElementById('doc-compromisso-icon').innerText = data.docCompromisso.icon;
 
-    // Disparar Notificação Toast para feedback ao Avaliador
     triggerNotification(`Modo Cenário ${num} Carregado`, `Exibindo a jornada de: ${data.greeting.replace('Olá, ','')}`);
 }
 
@@ -207,7 +220,6 @@ function submitChatMessage() {
     insertMessage("Você", val, "sent");
     input.value = '';
 
-    // Efeito de Carregamento da IA da Cisca
     const box = document.getElementById('chat-messages-box');
     const loading = document.createElement('div');
     loading.className = "typing";
@@ -222,18 +234,25 @@ function submitChatMessage() {
 
         let reply = "";
         
-        // Trata o texto: remove pontuação comum (?, !, ., ,) para evitar quebras de correspondência
-        const lowerCleaned = val.toLowerCase().replace(/[?!.,\/\\#$%\^&\*;:{}=\-_`~()]/g, "").trim();
+        // Função interna para remover acentos e aproximar a busca fonética/textual
+        const removerAcentos = (texto) => {
+            return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        };
 
-        // Faz a varredura inteligente pelas chaves do dicionário
+        // Trata o texto digitado pelo usuário: minúsculo, sem pontuação e sem acentos
+        const lowerCleaned = removerAcentos(val.toLowerCase())
+            .replace(/[?!.,\/\\#$%\^&\*;:{}=\-_`~()]/g, "")
+            .trim();
+
+        // Varredura inteligente pelas chaves do dicionário (removendo acentos das chaves também)
         for (const k in ciscaKnowledge) {
-            if (lowerCleaned.includes(k)) {
+            const keyCleaned = removerAcentos(k.toLowerCase());
+            if (lowerCleaned.includes(keyCleaned)) {
                 reply = ciscaKnowledge[k];
                 break;
             }
         }
 
-        // Se o usuário digitou algo aleatório que não mapeamos, usa o fallback de evolução da IA
         if (!reply) {
             reply = "Essa funcionalidade de IA ainda está em evolução no protótipo do Siscar+. Na versão completa do produto, nossa Inteligência Artificial lerá o Código Florestal e os Manuais Oficiais para te responder com total certeza técnica!";
         }
@@ -284,6 +303,6 @@ document.getElementById('chat-input').addEventListener('keypress', function (e) 
 
 // Inicialização Padrão Instantânea
 window.onload = () => {
-    selectScenario(1);            // 1º: Monta a interface na hora (Sem travar o usuário)
-    carregarConhecimentoCisca();  // 2º: Tenta puxar o JSON externo em background (Segurança nativa já ativa)
+    selectScenario(1);            
+    carregarConhecimentoCisca();  
 };
