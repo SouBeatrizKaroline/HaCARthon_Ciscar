@@ -53,48 +53,17 @@ const scenarios = {
 };
 
 // ==========================================
-// CENTRAL DE RESPOSTAS DA CISCA (MOCK DE IA EXPANDIDO - DESAFIO 3)
+// CENTRAL DE RESPOSTAS DA CISCA (MOCK DE IA)
 // ==========================================
 const ciscaKnowledge = {
-    // --- FOCO: SIMPLIFICAÇÃO, COMUNICAÇÃO VIRAL E EXEMPLOS CONCRETOS ---
-    "app": "APP é a Área de Preservação Permanente. Pense nela como os 'cílios do rio': se você arranca os cílios, a terra cai no olho d'água e ele seca! É a mata que protege as margens de rios, córregos e nascentes. Manter essa vegetação em pé evita o assoreamento (barranco caindo) e garante água limpa para o seu gado e sua lavoura o ano inteiro.",
-    
-    "reserva legal": "A Reserva Legal (RL) é uma fatia de mata nativa dentro da sua terra que não pode ser desmatada, mas pode gerar dinheiro com manejo sustentável (como coletar frutos ou manejar madeira autorizada). Em Goiás (Cerrado) e na maior parte do Brasil, ela é de 20%. Mas atenção: se a sua terra fica na Amazônia Legal, essa fatia pode subir para 35% (Cerrado na Amazônia) ou 80% (Floresta).",
-    
-    "car": "O CAR (Cadastro Ambiental Rural) não é um imposto, é o 'RG Ambiental' da sua propriedade! É um registro eletrônico obrigatório para todo imóvel rural. Sem ele, sua terra fica 'indocumentada' para o meio ambiente, impedindo você de vender a produção para grandes frigoríficos ou cooperativas e travando a sua herança/sucessão familiar.",
-    
-    "sicar": "O SICAR é o grande 'computador central' do governo federal em Brasília que unifica os CARs de todos os estados. Quando você envia o desenho da sua fazenda, o SICAR cruza os dados com fotos de satélite automáticas para ver se o seu mapa não está invadindo a terra do vizinho ou se tem desmatamento recente.",
-
-    "lei": "A lei principal é o Novo Código Florestal (Lei nº 12.651/2012). O Siscar+ serve justamente para traduzir esse textão de advogado para a linguagem prática da roça: em vez de decorar artigos, a gente te mostra onde cercar e como plantar!",
-
-    // --- FOCO: INCENTIVOS, CRÉDITO E EDUCAÇÃO ---
-    "credito rural": "Estar em dia com o CAR é a chave que abre o cofre do banco! Bancos e cooperativas exigem o CAR regularizado (ou com o PRA ativo) para liberar custeio, Pronaf e linhas de investimento. Produtor regularizado consegue o 'Crédito Verde': juros mais baixos, prazos maiores e aprovação em metade do tempo.",
-    
-    "incentivo": "Quem cuida da terra ganha! Além de crédito mais barato, proprietários regularizados têm direito a incentivos como o Pagamento por Serviços Ambientais (PSA) — onde você pode receber dinheiro direto para manter a floresta em pé —, isenção de impostos sobre insumos de reflorestamento e prioridade em programas de assistência técnica (Emater).",
-
-    // --- FOCO: CIÊNCIA DE DADOS E INTERPRETAÇÃO AUTOMÁTICA DA LEGISLAÇÃO ---
-    "analise": "O Siscar+ usa inteligência e ciência de dados para ler o mapa do seu imóvel. Nossa ferramenta cruza automaticamente as coordenadas geográficas da sua propriedade com a base de dados histórica do satélite MapBiomas. O sistema calcula sozinho o tamanho exato da sua APP com base na largura do rio e diz se a sua vegetação foi retirada antes ou depois de julho de 2008, aplicando a regra exata da lei sem você precisar calcular nada.",
-    
-    "imagem": "Análise por imagem de satélite! O sistema do Siscar+ interpreta imagens com resolução de até 3 metros para identificar regeneração natural. Se a floresta estiver crescendo sozinha na sua APP, nossa IA detecta e avisa o Analista do Estado, poupando você de gastar milhares de reais plantando mudas onde a natureza trabalha de graça.",
-
-    // --- FOCO: DIFERENCIAÇÃO DE PÚBLICOS (PEQUENO VS GRANDE) ---
-    "modulo fiscal": "Módulo Fiscal é uma medida em hectares que muda conforme o município (em Rio Verde - GO, 1 módulo equivale a 30 hectares). Ele define seus direitos legítimos:\n• ATÉ 4 MÓDULOS (Pequena Propriedade): Você tem regras muito mais suaves! O Código Florestal anistia a recomposição total se a sua APP for antiga, permitindo faixas menores de recuperação (regrinha da escadinha) para não tirar sua área de plantio.\n• MAIS DE 4 MÓDULOS (Média/Grande): Exige recomposição integral dos passivos, mas abre portas para o mercado de Crédito de Carbono e Cotas de Reserva Ambiental (CRA).",
-
-    "pequeno produtor": "Se a sua terra tem até 4 módulos fiscais, a lei te protege! Você tem direito a apoio gratuito do Estado para fazer o desenho do mapa, dispensa de recomposição obrigatória em áreas consolidadas antigas e regras facilitadas para o PRADA. O Siscar+ foi feito sob medida para garantir que o pequeno agricultor não seja punido por não entender o juridiquês.",
-
-    // --- FOCO: SUPORTE AO ANALISTA E PROCESSOS ---
-    "analista": "Ferramenta de Apoio à Luana (Analista do Estado): O Siscar+ reduz o retrabalho do órgão ambiental. Em vez de emitir notificações complexas que assustam o produtor e travam a fila, o sistema gera automaticamente um painel visual explicativo para o proprietário. Isso reduz em até 76% as dúvidas presenciais nos balcões da Secretaria de Meio Ambiente, fazendo com que os processos andem muito mais rápido.",
-    
-    "pendencia": "Não entre em pânico! Uma pendência no Siscar+ não é uma multa, é só um pedido de correção. Geralmente acontece quando o desenho do seu mapa ficou em cima da linha do vizinho (sobreposição) ou o satélite viu um rio que não estava desenhado. A Cisca te mostra exatamente onde corrigir no mapa e como enviar a foto de comprovação pelo celular.",
-
-    "prada": "O PRADA é o Projeto de Recomposição de Áreas Degradadas e Alteradas. É o seu plano de ação para regularizar o imóvel. O Siscar+ automatiza isso: nossa IA propõe o método mais barato para o seu bolso (Ex: apenas cercar a área para regeneração natural, ao invés de comprar milhares de mudas caras).",
-    
-    "pra": "O PRA é o Programa de Regularização Ambiental. Se você teve algum desmatamento antigo (antes de 22 de julho de 2008), o PRA é a sua anistia! Ao aderir ao programa e assinar o Termo de Compromisso, todas as multas daquele período ficam congeladas e são canceladas assim que você terminar de recuperar a sua área.",
-
-    // --- FOCO: MULTIPLICADORES E COMUNICAÇÃO AMPLA ---
-    "multiplicador": "Quer ser uma liderança na sua região? O Siscar+ conta com o programa 'Cisca nas Comunidades', uma plataforma de formação para presidentes de sindicatos rurais, técnicos de cooperativas e lideranças locais. Eles recebem treinamento direto no app para se tornarem multiplicadores, ajudando a espalhar a regularização ambiental e o acesso ao crédito nas comunidades mais distantes.",
-
-    "ajuda": "Estou aqui para descomplicar o Código Florestal usando tecnologia! Me pergunte sobre:\n• Leis e Termos: 'APP', 'Reserva Legal', 'CAR', 'SICAR', 'PRADA' ou 'PRA'\n• Inteligência do App: 'Análise automática', 'Imagem de Satélite' ou 'Incentivos'\n• Seus Direitos: 'Pequeno produtor', 'Módulo Fiscal' ou 'Crédito Rural'\n• Ajuda ao Órgão: 'Suporte ao Analista' ou 'Multiplicadores'."
+    "app": "APP é a Área de Preservação Permanente. É a mata protetora de rios, córregos e nascentes. Deixar a vegetação lá evita que a terra desmorone e falte água para sua própria plantação!",
+    "reserva legal": "A Reserva Legal é uma fatia de vegetação nativa que todo sítio precisa guardar. Aqui na nossa região de Cerrado/Mata ela equivale a 20% do tamanho da sua fazenda.",
+    "car": "O CAR é o Cadastro Ambiental Rural. Pense nele como o RG da sua terra. Ele serve para mostrar ao governo que você produz respeitando os recursos naturais.",
+    "lei": "A lei que rege nosso campo é o Código Florestal (Lei 12.651/2012). Sei que parece complicada, mas meu papel é traduzir cada artigo para te dar segurança!",
+    "pendencia": "Não se assuste! Uma pendência só significa que o técnico do governo viu um ponto de melhoria no mapa ou precisa de uma certidão atualizada.",
+    "credito rural": "O banco só libera o dinheiro do Pronaf ou do custeio se o CAR estiver em dia. Cuidar do meio ambiente hoje é o segredo para conseguir o recurso da próxima safra!",
+    "prada": "PRADA é o Projeto de Recomposição de Áreas Degradadas. É apenas um plano simples onde combinamos onde e como você vai plantar as árvores que faltam.",
+    "ajuda": "Estou aqui para ajudar! Você pode me perguntar sobre 'APP', 'Reserva Legal', 'Pendências' ou 'Crédito Rural'. Digite uma palavra ou selecione uma tag!"
 };
 
 let activeScenario = 1;
@@ -238,7 +207,7 @@ function submitChatMessage() {
         let reply = "";
         const lower = val.toLowerCase();
 
-        // Procura por palavras-chave no dicionário expandido
+        // Procura por palavras-chave no dicionário amigável
         for (const k in ciscaKnowledge) {
             if (lower.includes(k)) {
                 reply = ciscaKnowledge[k];
@@ -247,7 +216,7 @@ function submitChatMessage() {
         }
 
         if (!reply) {
-            reply = "Essa funcionalidade de IA ainda está em evolução no protótipo do Siscar+. Na versão completa do produto, nossa Inteligência Artificial lerá o Código Florestal e os Manuais Oficiais do SICAR para te responder com total certeza técnica!";
+            reply = "Essa funcionalidade de IA ainda está em evolução no protótipo do Siscar+. Na versão completa do produto, nossa Inteligência Artificial lerá o Código Florestal e os Manuais Oficiais para te responder com total certeza técnica!";
         }
 
         insertMessage("🐔 Cisca", reply, "received");
@@ -276,7 +245,7 @@ function closeModal() {
 }
 
 // GESTÃO DE TOAST NOTIFICATION
-function triggerNotification(title = "Alerta Siscar+", msg = "Seu cadastro possui updates.") {
+function triggerNotification(title = "Alerta Siscar+", msg = "Seu cadastro possui atualizações pendentes.") {
     document.getElementById('toast-title').innerText = title;
     document.getElementById('toast-body').innerText = msg;
     const t = document.getElementById('custom-toast');
@@ -289,30 +258,12 @@ function handleToastNavigation() {
     switchSubScreen('sub-explique');
 }
 
-// Inicialização amigável de Listeners e Estado Inicial
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. FAZER A SPLASH SCREEN AVANÇAR COM UM CLIQUE EM QUALQUER LUGAR DELA
-    // Mapeia tanto por ID quanto pela primeira tela ativa encontrada (conforme a imagem_eec777.png)
-    const splashScreen = document.getElementById('screen-splash') || document.querySelector('.app-screen.active');
-    
-    if (splashScreen) {
-        splashScreen.style.cursor = 'pointer'; 
-        splashScreen.addEventListener('click', (e) => {
-            // Impede que clique nos botões laterais do Hackathon de mudar cenários dispare o login acidentalmente
-            if (!e.target.closest('.demo-btn')) {
-                performLogin();
-            }
-        });
-    }
-
-    // Monitora tecla Enter no campo do Chat de forma segura após o DOM carregar
-    const chatInput = document.getElementById('chat-input');
-    if(chatInput) {
-        chatInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') submitChatMessage();
-        });
-    }
-    
-    // Roda o cenário inicial padrão
-    selectScenario(1);
+// Monitora tecla Enter no campo do Chat
+document.getElementById('chat-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') submitChatMessage();
 });
+
+// Inicialização Padrão
+window.onload = () => {
+    selectScenario(1);
+};
