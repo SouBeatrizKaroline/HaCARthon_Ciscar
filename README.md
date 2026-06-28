@@ -31,9 +31,9 @@ A identidade do **Siscar+** foi planejada para transmitir **confiança, sustenta
 
 | Cor | Hexadecimal | Significado e Aplicação Tecnológica |
 | :---: | :---: | :--- |
-| **Verde Floresta** | `#007025` | Cor principal da marca (texto "Siscar", linha guia e folha estilizada). Representa a vegetação nativa, a conformidade com o Código Florestal e a sustentabilidade no campo. |
-| **Laranja Alerta** | `#FF6B00` | Destaque do símbolo "+". Representa a desmistificação do processo, a energia do agronegócio e o destravamento do crédito rural. |
-| **Amarelo Sol** | `#FFEB60` | Fundo do brasão circular da Cisca. Traz acolhimento, otimismo e a clareza necessária para iluminar o "juridiquês". |
+| **Verde Folha** | `#0D7829` | Cor principal da marca (texto "Siscar", linha guia e folha estilizada). Representa a vegetação nativa, a conformidade com o Código Florestal e a sustentabilidade no campo. |
+| **Laranja Vivo** | `#FF6600` | Destaque do símbolo "+". Representa a desmistificação do processo, a energia do agronegócio e o destravamento do crédito rural. |
+| **Amarelo Girassol** | `#FCE266` | Fundo do brasão circular da Cisca. Traz acolhimento, otimismo e a clareza necessária para iluminar o "juridiquês". |
 | **Cinza Mineral** | `#555555` | Utilizado na assinatura de suporte ("SIMPLIFICANDO O CAR"). Garante excelente legibilidade, sobriedade técnica e neutralidade institucional. |
 
 ---
