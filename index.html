@@ -13,7 +13,6 @@
 <body>
 
     <!-- PAINEL DE CONTROLE DE DEMONSTRAÇÃO (Para os jurados do Hackathon) -->
-    <!-- Adicionado aria-label para boa prática de acessibilidade -->
     <nav class="demo-panel" aria-label="Painel de Avaliação do Hackathon">
         <div class="demo-header">
             <span class="material-icons" aria-hidden="true">architecture</span>
@@ -55,7 +54,6 @@
                     <h2>Acesse sua conta</h2>
                 </div>
                 <div class="screen-body padding-m">
-                    <!-- Correção de acessibilidade: inputs agora têm ID e labels conectados por 'for' -->
                     <div class="form-group">
                         <label for="input-cpf">CPF</label>
                         <div class="input-icon-wrapper">
@@ -125,24 +123,24 @@
                             </button>
                         </div>
 
-                        <!-- Grid de Navegação -->
+                        <!-- Grid de Navegação Reformulado semanticamente com Buttons -->
                         <nav class="menu-grid padding-m" aria-label="Menu principal">
-                            <div class="grid-item" onclick="switchSubScreen('sub-documentos')" role="button" tabindex="0">
+                            <button class="grid-item" onclick="switchSubScreen('sub-documentos')" type="button">
                                 <span class="material-icons text-purple" aria-hidden="true">folder</span>
                                 <p>Documentos</p>
-                            </div>
-                            <div class="grid-item" onclick="switchSubScreen('sub-timeline')" role="button" tabindex="0">
+                            </button>
+                            <button class="grid-item" onclick="switchSubScreen('sub-timeline')" type="button">
                                 <span class="material-icons text-orange" aria-hidden="true">route</span>
                                 <p>Passos do CAR</p>
-                            </div>
-                            <div class="grid-item" onclick="switchSubScreen('sub-aprender')" role="button" tabindex="0">
+                            </button>
+                            <button class="grid-item" onclick="switchSubScreen('sub-aprender')" type="button">
                                 <span class="material-icons text-blue" aria-hidden="true">local_library</span>
                                 <p>Aprender</p>
-                            </div>
-                            <div class="grid-item" onclick="openChatContext('ajuda')" role="button" tabindex="0">
+                            </button>
+                            <button class="grid-item" onclick="openChatContext('ajuda')" type="button">
                                 <span class="material-icons text-green" aria-hidden="true">forum</span>
                                 <p>Falar com a Cisca</p>
-                            </div>
+                            </button>
                         </nav>
                     </div>
 
@@ -193,7 +191,7 @@
                             <div class="step-card">
                                 <div class="step-number">2</div>
                                 <div class="step-info">
-                                    <h4>Plantio ou Regeneração</h4>
+                                    <h4>Plantio ou Regeneration</h4>
                                     <p>Plante mudas de árvores nativas da região ou deixe a própria natureza brotar se o solo estiver bom.</p>
                                 </div>
                             </div>
@@ -293,7 +291,6 @@
                             </div>
                             <div class="chat-input-bar">
                                 <input type="text" id="chat-input" placeholder="Pergunte ou aperte o microfone...">
-                                <!-- Mudado ícone para destacar o comando por voz, crucial para o produtor rural -->
                                 <button class="btn-send" onclick="submitChatMessage()" aria-label="Gravar áudio ou enviar mensagem"><span class="material-icons">mic</span></button>
                             </div>
                         </div>
