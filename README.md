@@ -6,17 +6,19 @@
 
 ## 🎬 Demonstrações e Links de Acesso
 
-Preparamos o nosso Pitch comercial e duas demonstrações práticas em vídeo para você ver o ecossistema do **Siscar+** funcionando na prática:
+Preparamos o nosso Pitch e materiais práticos em vídeo para você ver todo o ecossistema do **Siscar+**:
 
-* **🚀 Vídeo de Pitch (Apresentação Comercial):**
-  [Assista aqui ao nosso Pitch no YouTube](URL_DO_YOUTUBE) para entender o modelo de negócio, o problema do campo e a nossa proposta de valor em menos de 3 minutos.
+* **🚀 Vídeo de Pitch:**
+  [Assista aqui ao nosso Pitch no YouTube](URL_DO_YOUTUBE) para entender o modelo de negócio, as dores do produtor rural e a nossa proposta de valor em menos de 3 minutos.
 
-* **💻 Gravação do Protótipo (Geral da Solução):**
-👉 **[Acesse Aqui](https://soubeatrizkaroline.github.io/HaCARthon_Siscar/)**
+* **⚙️ Vídeo da Solução:**
+  [Assista aqui ao nosso vídeo explicativo no YouTube](URL_DO_YOUTUBE) para entender as funcionalidades técnicas, a arquitetura e os bastidores do nosso protótipo em menos de 2 minutos.
+
+* **💻 Gravação do Protótipo:**
+  👉 **[Navegue no Protótipo Online](https://soubeatrizkaroline.github.io/HaCARthon_Siscar/)**
   <video src="https://github.com/user-attachments/assets/13ee585c-85b8-4ea5-8ba5-c672fb193cfe" controls="controls" style="max-width: 100%; margin-top: 10px; display: block;"></video>
-  *(Caso o player não carregue, [clique aqui para assistir diretamente no GitHub](https://github.com/user-attachments/assets/13ee585c-85b8-4ea5-8ba5-c672fb193cfe))*
     
-* **📱 A Cisca no WhatsApp (Experiência Prática móvel):** 
+* **📱 A Cisca no WhatsApp:** 
   <video src="https://github.com/user-attachments/assets/ab87b40b-8143-4acc-ba2c-19792108b15c" controls="controls" style="max-width: 100%; margin-top: 10px; display: block;"></video>
 
 ---
