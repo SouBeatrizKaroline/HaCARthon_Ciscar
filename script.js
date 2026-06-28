@@ -249,7 +249,7 @@ function closeModal() {
 }
 
 // GESTÃO DE TOAST NOTIFICATION
-function triggerNotification(title = "Alerta Siscar+", msg = "Seu cadastro possui atualizações pendentes.") {
+function triggerNotification(title = "Alerta Siscar+", msg = "Seu cadastro possui updates.") {
     document.getElementById('toast-title').innerText = title;
     document.getElementById('toast-body').innerText = msg;
     const t = document.getElementById('custom-toast');
@@ -264,6 +264,20 @@ function handleToastNavigation() {
 
 // Inicialização amigável de Listeners e Estado Inicial
 document.addEventListener("DOMContentLoaded", () => {
+    // 1. FAZER A SPLASH SCREEN AVANÇAR COM UM CLIQUE EM QUALQUER LUGAR DELA
+    // Mapeia tanto por ID quanto pela primeira tela ativa encontrada (conforme a imagem_eec777.png)
+    const splashScreen = document.getElementById('screen-splash') || document.querySelector('.app-screen.active');
+    
+    if (splashScreen) {
+        splashScreen.style.cursor = 'pointer'; 
+        splashScreen.addEventListener('click', (e) => {
+            // Impede que clique nos botões laterais do Hackathon de mudar cenários dispare o login acidentalmente
+            if (!e.target.closest('.demo-btn')) {
+                performLogin();
+            }
+        });
+    }
+
     // Monitora tecla Enter no campo do Chat de forma segura após o DOM carregar
     const chatInput = document.getElementById('chat-input');
     if(chatInput) {
@@ -272,6 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-    // Roda o cenário inicial
+    // Roda o cenário inicial padrão
     selectScenario(1);
 });
