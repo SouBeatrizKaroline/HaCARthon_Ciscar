@@ -55,46 +55,24 @@ const scenarios = {
 // ==========================================
 // CENTRAL DE RESPOSTAS DA CISCA (MOCK DE IA EXPANDIDO - DESAFIO 3)
 // ==========================================
+// ==========================================
+// CENTRAL DE RESPOSTAS DA CISCA
+// ==========================================
+
 const ciscaKnowledge = {
-    // --- FOCO: SIMPLIFICAÇÃO, COMUNICAÇÃO VIRAL E EXEMPLOS CONCRETOS ---
-    "app": "APP é a Área de Preservação Permanente. Pense nela como os 'cílios do rio': se você arranca os cílios, a terra cai no olho d'água e ele seca! É a mata que protege as margens de rios, córregos e nascentes. Manter essa vegetação em pé evita o assoreamento (barranco caindo) e garante água limpa para o seu gado e sua lavoura o ano inteiro.",
+    "o que e o car": "O CAR é o Cadastro Ambiental Rural. É como se fosse uma identidade da sua terra, mas focada na natureza dela. Todo imóvel rural precisa ter para ficar em dia com a lei!",
     
-    "reserva legal": "A Reserva Legal (RL) é uma fatia de mata nativa dentro da sua terra que não pode ser desmatada, mas pode gerar dinheiro com manejo sustentável (como coletar frutos ou manejar madeira autorizada). Em Goiás (Cerrado) e na maior parte do Brasil, ela é de 20%. Mas atenção: se a sua terra fica na Amazônia Legal, essa fatia pode subir para 35% (Cerrado na Amazônia) ou 80% (Floresta).",
+    "vou pagar multa": "Olha, a ideia do governo não é sair multando quem quer andar certo! Se você fizer o cadastro e assumir o compromisso de cuidar ou recuperar o que precisa, as multas antigas ficam suspensas.",
     
-    "car": "O CAR (Cadastro Ambiental Rural) não é um imposto, é o 'RG Ambiental' da sua propriedade! É um registro eletrônico obrigatório para todo imóvel rural. Sem ele, sua terra fica 'indocumentada' para o meio ambiente, impedindo você de vender a produção para grandes frigoríficos ou cooperativas e travando a sua herança/sucessão familiar.",
+    "medo de multa": "Fica tranquilo! O Siscar+ serve justamente para te ajudar a regularizar a terra sem susto. Entrando no programa de regularização, você ganha prazo e não toma multa por isso.",
     
-    "sicar": "O SICAR é o grande 'computador central' do governo federal em Brasília que unifica os CARs de todos os estados. Quando você envia o desenho da sua fazenda, o SICAR cruza os dados com fotos de satélite automáticas para ver se o seu mapa não está invadindo a terra do vizinho ou se tem desmatamento recente.",
-
-    "lei": "A lei principal é o Novo Código Florestal (Lei nº 12.651/2012). O Siscar+ serve justamente para traduzir esse textão de advogado para a linguagem prática da roça: em vez de decorar artigos, a gente te mostra onde cercar e como plantar!",
-
-    // --- FOCO: INCENTIVOS, CRÉDITO E EDUCAÇÃO ---
-    "credito rural": "Estar em dia com o CAR é a chave que abre o cofre do banco! Bancos e cooperativas exigem o CAR regularizado (ou com o PRA ativo) para liberar custeio, Pronaf e linhas de investimento. Produtor regularizado consegue o 'Crédito Verde': juros mais baixos, prazos maiores e aprovação em metade do tempo.",
+    "quanto custa": "Fazer o CAR é de graça! O governo não cobra taxa nenhuma para registrar a sua terra no sistema.",
     
-    "incentivo": "Quem cuida da terra ganha! Além de crédito mais barato, proprietários regularizados têm direito a incentivos como o Pagamento por Serviços Ambientais (PSA) — onde você pode receber dinheiro direto para manter a floresta em pé —, isenção de impostos sobre insumos de reflorestamento e prioridade em programas de assistência técnica (Emater).",
-
-    // --- FOCO: CIÊNCIA DE DADOS E INTERPRETAÇÃO AUTOMÁTICA DA LEGISLAÇÃO ---
-    "analise": "O Siscar+ usa inteligência e ciência de dados para ler o mapa do seu imóvel. Nossa ferramenta cruza automaticamente as coordenadas geográficas da sua propriedade com a base de dados histórica do satélite MapBiomas. O sistema calcula sozinho o tamanho exato da sua APP com base na largura do rio e diz se a sua vegetação foi retirada antes ou depois de julho de 2008, aplicando a regra exata da lei sem você precisar calcular nada.",
+    "o que e app": "APP significa Área de Preservação Permanente. São aqueles lugares na sua fazenda que a gente não pode mexer de jeito nenhum, como a beira de um rio, nascentes ou topo de morro, para proteger a água e a terra.",
     
-    "imagem": "Análise por imagem de satélite! O sistema do Siscar+ interpreta imagens com resolução de até 3 metros para identificar regeneração natural. Se a floresta estiver crescendo sozinha na sua APP, nossa IA detecta e avisa o Analista do Estado, poupando você de gastar milhares de reais plantando mudas onde a natureza trabalha de graça.",
-
-    // --- FOCO: DIFERENCIAÇÃO DE PÚBLICOS (PEQUENO VS GRANDE) ---
-    "modulo fiscal": "Módulo Fiscal é uma medida em hectares que muda conforme o município (em Rio Verde - GO, 1 módulo equivale a 30 hectares). Ele define seus direitos legítimos:\n• ATÉ 4 MÓDULOS (Pequena Propriedade): Você tem regras muito mais suaves! O Código Florestal anistia a recomposição total se a sua APP for antiga, permitindo faixas menores de recuperação (regrinha da escadinha) para não tirar sua área de plantio.\n• MAIS DE 4 MÓDULOS (Média/Grande): Exige recomposição integral dos passivos, mas abre portas para o mercado de Crédito de Carbono e Cotas de Reserva Ambiental (CRA).",
-
-    "pequeno produtor": "Se a sua terra tem até 4 módulos fiscais, a lei te protege! Você tem direito a apoio gratuito do Estado para fazer o desenho do mapa, dispensa de recomposição obrigatória em áreas consolidadas antigas e regras facilitadas para o PRADA. O Siscar+ foi feito sob medida para garantir que o pequeno agricultor não seja punido por não entender o juridiquês.",
-
-    // --- FOCO: SUPORTE AO ANALISTA E PROCESSOS ---
-    "analista": "Ferramenta de Apoio à Luana (Analista do Estado): O Siscar+ reduz o retrabalho do órgão ambiental. Em vez de emitir notificações complexas que assustam o produtor e travam a fila, o sistema gera automaticamente um painel visual explicativo para o proprietário. Isso reduz em até 76% as dúvidas presenciais nos balcões da Secretaria de Meio Ambiente, fazendo com que os processos andem muito mais rápido.",
+    "o que e prada": "O PRADA é o Projeto de Recomposição de Áreas Degradadas e Alteradas. É basicamente um plano simples dizendo onde e como você vai plantar as mudinhas de árvore nativa para recuperar a beira do rio.",
     
-    "pendencia": "Não entre em pânico! Uma pendência no Siscar+ não é uma multa, é só um pedido de correção. Geralmente acontece quando o desenho do seu mapa ficou em cima da linha do vizinho (sobreposição) ou o satélite viu um rio que não estava desenhado. A Cisca te mostra exatamente onde corrigir no mapa e como enviar a foto de comprovação pelo celular.",
-
-    "prada": "O PRADA é o Projeto de Recomposição de Áreas Degradadas e Alteradas. É o seu plano de ação para regularizar o imóvel. O Siscar+ automatiza isso: nossa IA propõe o método mais barato para o seu bolso (Ex: apenas cercar a área para regeneração natural, ao invés de comprar milhares de mudas caras).",
-    
-    "pra": "O PRA é o Programa de Regularização Ambiental. Se você teve algum desmatamento antigo (antes de 22 de julho de 2008), o PRA é a sua anistia! Ao aderir ao programa e assinar o Termo de Compromisso, todas as multas daquele período ficam congeladas e são canceladas assim que você terminar de recuperar a sua área.",
-
-    // --- FOCO: MULTIPLICADORES E COMUNICAÇÃO AMPLA ---
-    "multiplicador": "Quer ser uma liderança na sua região? O Siscar+ conta com o programa 'Cisca nas Comunidades', uma plataforma de formação para presidentes de sindicatos rurais, técnicos de cooperativas e lideranças locais. Eles recebem treinamento direto no app para se tornarem multiplicadores, ajudando a espalhar a regularização ambiental e o acesso ao crédito nas comunidades mais distantes.",
-
-    "ajuda": "Estou aqui para descomplicar o Código Florestal usando tecnologia! Me pergunte sobre:\n• Leis e Termos: 'APP', 'Reserva Legal', 'CAR', 'SICAR', 'PRADA' ou 'PRA'\n• Inteligência do App: 'Análise automática', 'Imagem de Satélite' ou 'Incentivos'\n• Seus Direitos: 'Pequeno produtor', 'Módulo Fiscal' ou 'Crédito Rural'\n• Ajuda ao Órgão: 'Suporte ao Analista' ou 'Multiplicadores'."
+    "credito rural": "Com o CAR aprovado e 100% regularizado, o banco vê que sua terra está em dia e libera os financiamentos e o Crédito Rural com os juros mais baixos para você investir na lavoura!"
 };
 
 let activeScenario = 1;
