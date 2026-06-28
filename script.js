@@ -61,7 +61,7 @@ let ciscaKnowledge = {};
 // Função assíncrona para buscar as respostas no arquivo JSON
 async function carregarConhecimentoCisca() {
     try {
-        const resposta = await fetch('perguntas.json');
+        const resposta = await fetch('./perguntas.json');
         
         if (!resposta.ok) {
             throw new Error(`Erro ao carregar o arquivo: ${resposta.status}`);
