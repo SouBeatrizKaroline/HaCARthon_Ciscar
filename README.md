@@ -1,8 +1,20 @@
-![Logo Siscar+](logo.png)
-
 # 🚜 Siscar+ | Inteligência Ambiental e Acessibilidade no CAR
 
 > **Desafio 3 (haCARthon):** Desenvolver soluções inovadoras para aumentar o entendimento da legislação ambiental pelos proprietários rurais, aproximando o cidadão do órgão fiscalizador de forma clara e humana.
+
+---
+
+![Logo Siscar+](logo.png)
+
+## 🎬 Demonstrações em Vídeo
+
+Preparamos duas demonstrações rápidas para você ver a nossa solução funcionando na prática:
+
+*   **🚀 Pitch e Protótipo do Sistema (2 Minutos):**
+    [Assista aqui ao nosso video da Solução](URL_DO_VIDEO) para ver como a nossa assistente interage com o produtor rural usando uma linguagem simples e acessível.
+    
+*   **📱 A Cisca no WhatsApp (Experiência Prática):** 
+    <video src="https://github.com/user-attachments/assets/ab87b40b-8143-4acc-ba2c-19792108b15c" controls="controls" style="max-width: 100%; margin-top: 10px;"></video>
 
 ---
 
