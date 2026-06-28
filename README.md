@@ -4,7 +4,34 @@
 
 ---
 
+## 🎨 Nossa Logo
+
 ![Logo Siscar+](logo.png)
+
+## 🎨 Identidade Visual & Paleta de Cores
+
+A identidade do **Siscar+** foi planejada para transmitir **confiança, sustentabilidade e proximidade com o produtor do campo**, equilibrando o verde da preservação ambiental com o calor e a energia do ecossistema agrícola.
+
+### 🎨 Paleta de Cores Oficial
+
+| Cor | Hexadecimal | Significado e Aplicação |
+| :---: | :---: | :--- |
+| **Verde Floresta** | `#007025` | Cor principal da marca (texto "Siscar"). Representa a vegetação nativa, o cumprimento da legislação ambiental e a sustentabilidade. |
+| **Laranja Alerta** | `#FF6B00` | Destaque do símbolo "+" e alertas de urgência. Transmite ação, dinamismo e o destravamento do crédito rural. |
+| **Amarelo Sol** | `#FFEB60` | Fundo do ícone da Cisca. Traz acolhimento, energia positiva e a clareza necessária para simplificar o "juridiquês". |
+| **Cinza Mineral** | `#555555` | Utilizado na tipografia de suporte ("SIMPLIFICANDO O CAR"). Garante excelente legibilidade e neutralidade técnica. |
+
+### 🐔 A Mascote: Cisca
+A nossa mascote foi desenhada para quebrar a frieza dos sistemas governamentais tradicionais. A escolha de uma galinha simpática e expressiva gera identificação imediata com o cotidiano do produtor rural, transformando o atendimento em uma conversa amigável entre parceiros de campo
+
+---
+
+## 🐔 Conheça a Cisca!
+O grande gargalo do Cadastro Ambiental Rural (CAR) não é a falta de vontade do produtor, mas a complexidade do "juridiquês" das notificações oficiais. Quando o **Seu Raimundo** recebe um alerta dizendo que *"infracionou o Artigo 61-A da Lei 12.651/2012"*, o medo paralisa o processo.
+
+O **Siscar+** resolve isso humanizando a comunicação através da **Cisca**, uma assistente virtual focada na linguagem do campo, que traduz termos jurídicos em tarefas práticas e visuais.
+
+---
 
 ## 🎬 Demonstrações em Vídeo
 
@@ -26,16 +53,9 @@ Para testar a aplicação rodando em tempo real sem precisar baixar o código, a
 
 ---
 
-## 🐔 Conheça a Cisca!
-O grande gargalo do Cadastro Ambiental Rural (CAR) não é a falta de vontade do produtor, mas a complexidade do "juridiquês" das notificações oficiais. Quando o **Seu Raimundo** recebe um alerta dizendo que *"infracionou o Artigo 61-A da Lei 12.651/2012"*, o medo paralisa o processo.
-
-O **Siscar+** resolve isso humanizando a comunicação através da **Cisca**, uma assistente virtual focada na linguagem do campo, que traduz termos jurídicos em tarefas práticas e visuais.
-
----
-
 ## ✨ Funcionalidades em Destaque
 
-*   **Modo Hackathon Interativo:** Painel acoplado para simular em tempo real 4 cenários estratégicos da jornada do usuário para a banca avaliadora.
+*   **Modo HaCARthon Interativo:** Painel acoplado para simular em tempo real 4 cenários estratégicos da jornada do usuário para a banca avaliadora.
 *   **Tradução Simultânea da Lei:** Transforma artigos complexos em analogias simples (ex: *"A APP funciona como os cílios dos nossos olhos: protege a água do rio"*).
 *   **Mapa de Bolso Didático:** Um micro-mapa dinâmico e simplificado que destaca as áreas de preservação a recuperar de forma lúdica.
 *   **Plano de Ação Passo a Passo:** Transforma a pendência em uma lista de tarefas compreensíveis para o produtor familiar (ex: cercar o córrego, plantar mudas).
