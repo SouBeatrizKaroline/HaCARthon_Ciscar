@@ -2,16 +2,16 @@
    CONFIGURAÇÕES GLOBAIS E MARCA DO PRODUTO
    ========================================== */
 :root {
-    --primary: #2E7D32;       /* Verde Puro e Moderno */
-    --primary-light: #E8F5E9; /* Fundo suave acolhedor */
-    --accent: #E65100;        /* Laranja Alerta Amigável */
-    --accent-light: #FFF3E0;
+    --primary: #007025;       /* Verde Oficial Extraído da Logo */
+    --primary-light: #E6F4EA; /* Fundo suave acolhedor */
+    --accent: #FF6B00;        /* Laranja Oficial Extraído do "+" */
+    --accent-light: #FFF0E6;  /* Fundo suave para alertas */
     --neutral-bg: #F8F9FA;
     --white: #FFFFFF;
-    --dark: #212121;
-    --muted: #666666;
+    --dark: #2F3E46;          /* Cinza mineral escuro para tipografia */
+    --muted: #555555;         /* Cinza institucional da logo */
     --radius: 16px;
-    --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    --shadow: 0 4px 16px rgba(0, 112, 37, 0.06);
 }
 
 * {
@@ -90,22 +90,25 @@ body {
     font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center;
     gap: 8px; transition: all 0.2s ease;
 }
-.btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 4px 12px rgba(46,125,50,0.2); }
-.btn-primary:hover { background: #256428; }
+.btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 4px 12px rgba(0,112,37,0.2); }
+.btn-primary:hover { background: #00591D; }
 .btn-secondary { background: #E0E0E0; color: var(--dark); }
 .btn-govbr { background: #0047B6; color: white; font-weight: 500; }
 .btn-icon { background: none; border: none; cursor: pointer; color: inherit; }
 
 .btn-pulse { animation: pulseGlow 2s infinite; }
 @keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 rgba(46,125,50,0.4); }
-    70% { box-shadow: 0 0 0 8px rgba(46,125,50,0); }
-    100% { box-shadow: 0 0 0 0 rgba(46,125,50,0); }
+    0% { box-shadow: 0 0 0 0 rgba(0,112,37,0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(0,112,37,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,112,37,0); }
 }
 
-/* AVATAR MASCOTE */
+/* AVATAR MASCOTE (Calibrado com a logo_2.png) */
 .mascote-avatar {
-    background: #FFF59D; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);
+    background: #FFE661;              /* Amarelo Sol exato do círculo da logo */
+    border: 2px solid var(--primary);  /* Contorno verde marcante */
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);
+    overflow: hidden;
 }
 .mascote-avatar.large { width: 90px; height: 90px; font-size: 48px; }
 .mascote-avatar.medium { width: 56px; height: 56px; font-size: 32px; }
@@ -163,7 +166,7 @@ body {
 .map-layer { position: absolute; }
 .map-layer.boundary { border: 2px dashed var(--primary); width: 80%; height: 80%; top: 10%; left: 10%; background: rgba(200, 230, 201, 0.4); }
 .map-layer.river { background: #2196F3; height: 12px; width: 120%; top: 45%; left: -10%; transform: rotate(-15deg); }
-.map-layer.app-zone { background: rgba(230, 81, 0, 0.4); height: 32px; width: 120%; top: 35%; left: -10%; transform: rotate(-15deg); }
+.map-layer.app-zone { background: rgba(255, 107, 0, 0.4); height: 32px; width: 120%; top: 35%; left: -10%; transform: rotate(-15deg); }
 .map-tag { position: absolute; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; color: white; }
 .tag-prop { bottom: 15%; left: 15%; background: var(--primary); }
 .tag-app { top: 20%; left: 40%; background: var(--accent); }
